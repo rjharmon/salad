@@ -6,10 +6,15 @@
 # I should see 6 'p.nice' elements
 # I should see 6 'p.nice' elements with 'My content'
 
-Then /^\w+ should see (\w+) '([^\']*)' element[s]? (?:with '(.*?)')?/ do |number, el_type, contents|
+Then /^\w+ should see (\w+) '([^\']*)' element[s]? (?:with (['\/])(.*?)['\/])?/ do |number, el_type, quote_type, contents|
   response.should_not be_redirect
   require 'nokogiri'
   doc = Nokogiri::HTML.parse( response.body )
+
+  
+  if quote_type == "/"
+    contents = Regexp.new( contents )
+  end
   
   if( number =~ /^a[n]?$/ )
     number = 1
