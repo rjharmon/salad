@@ -1,0 +1,20 @@
+Useful recipes for Cucumber to make common tasks easier and more fun.
+
+CHANGELOG
+---------
+
+2009-02-26
+
+Added nokogiri-based matchers for HTML tags, more flexible than has_tag().
+
+TODO
+----
+
+Document these.
+
+Collect more useful recipes.  
+
+Add a catch-all matcher or maybe patch cucumber, so that the text of
+non-matching steps and existing defined steps are analyzed and suggestions
+are made smarter than the current "make a new step" suggestion.
+
